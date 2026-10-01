@@ -45,9 +45,9 @@ With more time: a replica for read-only state/metrics, with the primary still ar
 Logs are JSON with `request_id` (echoed as `x-request-id`) for tracing a single request.
 
 ## AI usage  *(edit this to be accurate for your own work!)*
-Directed: <e.g. I chose Postgres conditional update + ordered locks over Redis; chose all-or-nothing; chose explicit cancel over TTL holds; chose fail-closed readiness.>
-Decided by the AI: <e.g. Claude drafted the FastAPI/asyncpg code, schema, burst script, and first draft of this doc; it was run against a local Postgres with a 22k request burst.>
-Corrected after review/testing: <e.g. burst script missed the hot-storm winner in its metrics reconciliation; added lock-free fast path after observing slow hot-seat contention.>
+\Directed: I chose Postgres conditional update + ordered row locks, all-or-nothing multi-seat, explicit cancel, fail-closed readyz.
+Decided by the AI: drafted FastAPI/asyncpg code, schema, burst.py, and first doc draft from my spec.
+Corrected after review/testing: fixed metrics reconciliation to count only winners, added lock-free fast path after hot-seat slowness, re-ran 22k burst locally.
 Be specific and honest here; graders read this alongside the commit history.
 
 ## What I'd do next

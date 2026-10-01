@@ -5,7 +5,7 @@ Stack: Python 3.12 · FastAPI · asyncpg · PostgreSQL 16 · Prometheus metrics.
 
 **Live URL:** `https://<your-service>.onrender.com`  (fill in after deploy)
 **Metrics:** `GET /metrics` · **Health:** `GET /healthz` (liveness), `GET /readyz` (readiness, checks DB, 503 when down)
-**Logs:** Render dashboard → service → Logs (public log link / screen recording: `<add link>`). JSON lines with `request_id`.
+**Logs:** Render dashboard → service → Logs (public log link / screen recording:  (Render dashboard → seat-reservation-ndm3 → Logs)). JSON lines with `request_id`.
 
 ## Run locally
 ```bash
@@ -17,7 +17,7 @@ python3 burst.py http://localhost:8000   # or: make burst
 New → Blueprint → select this repo (`render.yaml` creates web service + Postgres and a generated `ADMIN_TOKEN`).
 Read the generated token from the service's Environment tab, then:
 ```bash
-ADMIN_TOKEN=<token> python3 burst.py https://<your-service>.onrender.com
+ADMIN_TOKEN=<token> python3 burst.py https://seat-reservation-ndm3.onrender.com
 ```
 (Free instances sleep; the app retries the DB on boot and `/healthz` is the platform health check.)
 
